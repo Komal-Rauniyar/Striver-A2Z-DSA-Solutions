@@ -1,0 +1,6 @@
+# Left rotate by D places
+def leftRotate(self, arr, n, d):
+        arr[:d]=reversed(arr[:d])
+        arr[d:]=reversed(arr[d:])
+        arr[:]=reversed(arr[:])
+        return arr
