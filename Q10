@@ -1,0 +1,12 @@
+#Maximum consecutive one's
+def consecutiveOnes(arr: List[int]) -> int:
+    # Write your code here.
+    counter=0
+    maxi=0
+    for i in range(len(arr)):
+        if arr[i]==1:
+            counter+=1
+        else:
+            counter=0
+        maxi=max(counter,maxi)
+    return maxi
