@@ -1,0 +1,7 @@
+# Find the number that appears once, and the others twice
+def getSingleElement(arr : List[int]) -> int:
+    # Write your code here.
+    XOR=0
+    for i in range(0,len(arr)):
+        XOR=XOR^arr[i]
+    return XOR  
