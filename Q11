@@ -4,4 +4,4 @@ def getSingleElement(arr : List[int]) -> int:
     XOR=0
     for i in range(0,len(arr)):
         XOR=XOR^arr[i]
-    return XOR 
+    return XOR  
