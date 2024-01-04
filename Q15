@@ -1,0 +1,21 @@
+# Majority Element(N/2)
+def majorityElement(v: [int]) -> int:
+    # Write your code here
+    cnt=0
+    ele=None
+    n=len(v)
+    for i in range(n):
+        if cnt==0:
+            cnt=1
+            ele=v[i]
+        elif v[i]==ele:
+            cnt+=1
+        else:
+            cnt-=1
+    cnt1=0
+    for i in range(n):
+        if v[i]==ele:
+            cnt1+=1
+    if cnt1>(n/2):
+        return ele
+    return -1
