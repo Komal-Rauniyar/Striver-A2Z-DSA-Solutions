@@ -1,0 +1,15 @@
+# Rearrange array elements by sign
+def alternateNumbers(a : List[int]) -> List[int]:
+    # Write your code here.
+    n=len(a)
+    ans=[0]*n
+    posindex=0
+    negindex=1
+    for i in range(n):
+        if a[i]<0:
+            ans[negindex]=a[i]
+            negindex+=2
+        else:
+            ans[posindex]=a[i]
+            posindex+=2
+    return ans
