@@ -1,0 +1,37 @@
+import math
+
+def totalhours(v,hourly):
+
+    totalhr=0
+
+    n=len(v)
+
+    for i in range(n):
+
+        totalhr += math.ceil(v[i]/hourly)
+
+    return totalhr
+
+def minimumRateToEatBananas(v: [int], h: int) -> int:
+
+    # Write Your Code Here.
+
+    low=1
+
+    high=max(v)
+
+    while(low<=high):
+
+        mid=(low+high)//2
+
+        totalhr=totalhours(v,mid)
+
+        if (totalhr<=h):
+
+            high=mid-1
+
+        else:
+
+            low=mid+1
+
+    return low
