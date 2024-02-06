@@ -1,0 +1,27 @@
+from os import *
+from sys import *
+from collections import *
+from math import *
+def findDays(weights,cap):
+    days=1
+    load=0
+    n=len(weights)
+    for i in range(n):
+        if load+weights[i]>cap :
+            days +=1
+            load =weights[i]
+        else:
+            load +=weights[i]
+    return days
+def leastWeightCapacity(weights, d):
+    # Write your code here.
+    low=max(weights)
+    high=sum(weights)
+    while(low<=high):
+        mid=(low+high)//2
+        days=findDays(weights,mid)
+        if days<=d:
+            high=mid-1
+        else:
+            low=mid+1
+    return low
