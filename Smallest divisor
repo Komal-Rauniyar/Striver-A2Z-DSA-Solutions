@@ -1,0 +1,24 @@
+from os import *
+from sys import *
+from collections import *
+from math import *
+import math
+def sumOfdiv(arr,div):
+    n=len(arr)
+    totalsum=0
+    for i in range(n):
+        totalsum += math.ceil(arr[i]/div)
+    return totalsum
+def smallestDivisor(arr: [int], limit: int) -> int:
+    n=len(arr)
+    if n>limit:
+        return -1
+    low=1
+    high=max(arr)
+    while(low<=high):
+        mid=(low+high)//2
+        if sumOfdiv(arr,mid) <= limit:
+            high=mid-1
+        else:
+            low=mid+1
+    return low
