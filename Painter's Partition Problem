@@ -1,0 +1,24 @@
+def countpainters(boards,time):
+    n=len(boards)
+    painters = 1
+    boardsPainter = 0
+    for i in range(n):
+        if boardsPainter + boards[i] <= time:
+            # allocate board to current painter
+            boardsPainter += boards[i]
+        else:
+            # allocate board to next painter
+            painters += 1
+            boardsPainter = boards[i]
+    return painters
+def findLargestMinDistance(boards:list, k:int):
+    low=max(boards)
+    high=sum(boards)
+    while(low<=high):
+        mid=(low+high)//2
+        painters=countpainters(boards,mid)
+        if painters>k:
+            low=mid+1
+        else:
+            high=mid-1
+    return low
