@@ -1,0 +1,29 @@
+def findmaxelement(g,mid,n):
+    maxel=-9999
+    index=-1
+    for i in range(n):
+        if g[i][mid]>maxel:
+            maxel=g[i][mid]
+            index=i
+    return index
+def findPeakGrid(g: [[int]]) -> [int]:
+    # Write your code here.
+    n=len(g)
+    m=len(g[0])
+    low=0
+    high=m-1
+    res=[-1,-1]
+    while(low<=high):
+        mid=(low+high)//2
+        row=findmaxelement(g,mid,n)
+        left=g[row][mid-1] if mid-1>=0 else -1
+        right=g[row][mid+1] if mid+1<m else -1
+        if (g[row][mid]>left and g[row][mid]>right):
+            res[0]=row
+            res[1]=mid
+            return res
+        elif (g[row][mid]<left):
+            high=mid-1
+        else:
+            low=mid+1
+    return res
